@@ -15,4 +15,4 @@ Em seu uso prático, procura responder questões de competência como:
 * Qual artefato foi elaborado por determinado colaborador, referente a um projeto?
 * Qual a plataforma de desenvolvimento usada em determinado projeto?
 
-(Mais informações)[http://www.alexandrecolucci.com/2013/03/27/ontologia-de-processos-de-gestao-de-produtos-multimidia/]
+[Mais informações](http://www.alexandrecolucci.com/2013/03/27/ontologia-de-processos-de-gestao-de-produtos-multimidia/)
