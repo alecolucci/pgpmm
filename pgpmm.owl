@@ -1,0 +1,2229 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+    xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+    xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+    xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns="http://www.owl-ontologies.com/Ontology1259068742.owl#"
+  xml:base="http://www.owl-ontologies.com/Ontology1259068742.owl">
+  <owl:Ontology rdf:about=""/>
+  <owl:Class rdf:ID="Desenho_de_banco_de_dados">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Facilitam o armazenamento, a recuperação e a manutenção dos dados, além da partilha de dados entre sistemas</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="é_validado_por"/>
+        </owl:onProperty>
+        <owl:allValuesFrom>
+          <owl:Class rdf:ID="Gerente_de_projeto"/>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:ID="Engenheiro_de_software"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="é_elaborado_por"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:ID="Diagrama_de_classe"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="descreve_um"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Artefato"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Desenho_de_banco_de_dados</rdfs:label>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+      <owl:Class rdf:ID="Desenho_de_interface"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+      <owl:Class rdf:about="#Desenho_de_interface"/>
+      <owl:Class rdf:ID="Desenho_da_arquitetura"/>
+      <owl:Class rdf:about="#Desenho_de_banco_de_dados"/>
+      <owl:Class rdf:ID="Protótipo"/>
+      <owl:Class rdf:ID="Especificação_de_requisitos"/>
+      <owl:Class rdf:ID="Orçamento"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Produto">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Resultado de um projeto, material pronto a ser entregue ao cliente.</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Produto</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#é_elaborado_por"/>
+        </owl:onProperty>
+        <owl:allValuesFrom>
+          <owl:Class rdf:ID="Equipe"/>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Analista_de_negócio">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <owl:Class rdf:ID="Designer_de_interface"/>
+              <owl:Class rdf:ID="Redator"/>
+            </owl:unionOf>
+          </owl:Class>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="é_responsável_por"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Equipe"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Analista_de_negócio</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Plataforma_de_entrega">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Ambiente a ser oferecido o produto pronto, distribuição do software pronto.</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Plataforma_de_entrega</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Plataforma"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+      <owl:Class rdf:about="#Desenho_de_interface"/>
+      <owl:Class rdf:about="#Desenho_da_arquitetura"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Desenvolvimento">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Desenvolvimento</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Ato de elaborar e implementar um sistema, isto é, transformar a necessidade de um utilizador ou de um mercado em um produto de software.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Fase"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Ativação">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Fase inicial do projeto em que são realizados os contatos iniciais com o cliente e as primeiras idéias são formalizadas em uma proposta a ser avaliada pelo mesmo, decidindo pela sua continuidade ou não.</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Ativação</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="é_realizado_por"/>
+        </owl:onProperty>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#Gerente_de_projeto"/>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Fase"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Análise">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="depende_de"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#Ativação"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Especificação"/>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Descrição detalhada dos esforços, prazos, recursos, restrições e prováveis dificuldades na elaboração do produto a ser desenvolvido.</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Análise</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Documento">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#Gerente_de_projeto"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#é_elaborado_por"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Documento</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Vídeo">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Material"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Vídeo</rdfs:label>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+      <owl:Class rdf:ID="Papel"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+      <owl:Class rdf:about="#Artefato"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Desenho_da_arquitetura">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#é_validado_por"/>
+        </owl:onProperty>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#Gerente_de_projeto"/>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#é_elaborado_por"/>
+        </owl:onProperty>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#Engenheiro_de_software"/>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:ID="Diagrama_de_interação"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#descreve_um"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Artefato"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Desenho_da_arquitetura</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Divisão dos produtos em suas partes principais, especificações dos relacionamentos entre suas partes.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="Revisão">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Revisão</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:ID="Redação"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#depende_de"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Desenvolvimento"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Correção da língua a ser apresentada pelo produto, que vai desde a gramática, compreensão até a adequação dos mesmos a língua.</rdfs:comment>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+      <owl:Class rdf:ID="Projeto"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Usuário">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Pessoa que usa o dados do projeto ou o projeto em si.</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Usuário</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Papel"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+      <owl:Class rdf:about="#Projeto"/>
+      <owl:Class rdf:about="#Artefato"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+      <owl:Class rdf:about="#Desenho_de_interface"/>
+      <owl:Class rdf:ID="Caso_de_uso"/>
+      <owl:Class rdf:about="#Desenho_da_arquitetura"/>
+      <owl:Class rdf:about="#Desenho_de_banco_de_dados"/>
+      <owl:Class rdf:about="#Protótipo"/>
+      <owl:Class rdf:ID="Classe"/>
+      <owl:Class rdf:about="#Diagrama_de_interação"/>
+      <owl:Class rdf:about="#Diagrama_de_classe"/>
+      <owl:Class rdf:about="#Especificação_de_requisitos"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+      <owl:Class rdf:about="#Gerente_de_projeto"/>
+      <owl:Class rdf:about="#Analista_de_negócio"/>
+      <owl:Class rdf:about="#Engenheiro_de_software"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Construção_das_páginas">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Reunião dos textos, materiais, scripts e componentes de cada uma das estruturas.</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Construção_das_páginas</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#depende_de"/>
+        </owl:onProperty>
+        <owl:allValuesFrom>
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <owl:Class rdf:about="#Protótipo"/>
+              <owl:Class rdf:about="#Desenho_de_interface"/>
+            </owl:unionOf>
+          </owl:Class>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Desenvolvimento"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Especificação_de_requisitos">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Documento resultante de análise de requisitos e apresenta, em formato detalhado, toda a descrição do produto que se pretende realizar.</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Especificação_de_requisitos</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#Engenheiro_de_software"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#é_validado_por"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="#Análise"/>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#depende_de"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#Especificação"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#descreve_um"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Documento"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Programador">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Equipe"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Programador</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Alguém que desenvolve ou faz manutenção de software em um grande sistema mainframe, ou alguém que desenvolve software primariamente para uso em computadores pessoais.</rdfs:comment>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+      <owl:Class rdf:about="#Projeto"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+      <owl:Class rdf:about="#Análise"/>
+      <owl:Class rdf:ID="Planejamento"/>
+      <owl:Class rdf:ID="Desenho"/>
+      <owl:Class rdf:about="#Redação"/>
+      <owl:Class rdf:about="#Revisão"/>
+      <owl:Class rdf:ID="Edição"/>
+      <owl:Class rdf:ID="Codificação"/>
+      <owl:Class rdf:about="#Construção_das_páginas"/>
+      <owl:Class rdf:ID="Integração"/>
+      <owl:Class rdf:ID="Testes"/>
+      <owl:Class rdf:ID="Implantação"/>
+      <owl:Class rdf:about="#Especificação_de_requisitos"/>
+      <owl:Class rdf:about="#Orçamento"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+      <owl:Class rdf:about="#Desenho_de_interface"/>
+      <owl:Class rdf:about="#Desenho_da_arquitetura"/>
+      <owl:Class rdf:about="#Desenho_de_banco_de_dados"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+      <owl:Class rdf:about="#Desenho_de_interface"/>
+      <owl:Class rdf:about="#Caso_de_uso"/>
+      <owl:Class rdf:about="#Desenho_da_arquitetura"/>
+      <owl:Class rdf:about="#Desenho_de_banco_de_dados"/>
+      <owl:Class rdf:about="#Protótipo"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+      <owl:Class rdf:about="#Análise"/>
+      <owl:Class rdf:about="#Planejamento"/>
+      <owl:Class rdf:about="#Desenho"/>
+      <owl:Class rdf:about="#Redação"/>
+      <owl:Class rdf:about="#Revisão"/>
+      <owl:Class rdf:about="#Edição"/>
+      <owl:Class rdf:about="#Codificação"/>
+      <owl:Class rdf:about="#Construção_das_páginas"/>
+      <owl:Class rdf:about="#Integração"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Projeto">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Esforço temporário empreendido para criar um produto, serviço ou resultado exclusivo.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#Gerente_de_projeto"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#é_elaborado_por"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Projeto</rdfs:label>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+      <owl:Class rdf:about="#Projeto"/>
+      <owl:Class rdf:about="#Desenho_de_interface"/>
+      <owl:Class rdf:about="#Caso_de_uso"/>
+      <owl:Class rdf:about="#Desenho_da_arquitetura"/>
+      <owl:Class rdf:about="#Desenho_de_banco_de_dados"/>
+      <owl:Class rdf:about="#Protótipo"/>
+      <owl:Class rdf:about="#Classe"/>
+      <owl:Class rdf:about="#Diagrama_de_interação"/>
+      <owl:Class rdf:about="#Diagrama_de_classe"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+      <owl:Class rdf:about="#Artefato"/>
+      <owl:Class rdf:about="#Material"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Papel">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Papel</rdfs:label>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+      <owl:Class rdf:about="#Desenho_de_interface"/>
+      <owl:Class rdf:about="#Desenho_da_arquitetura"/>
+      <owl:Class rdf:about="#Desenho_de_banco_de_dados"/>
+      <owl:Class rdf:about="#Protótipo"/>
+      <owl:Class rdf:about="#Especificação_de_requisitos"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Desenho_de_interface">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Desenho_de_interface</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#é_validado_por"/>
+        </owl:onProperty>
+        <owl:allValuesFrom>
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <owl:Class rdf:about="#Analista_de_negócio"/>
+              <owl:Class rdf:about="#Gerente_de_projeto"/>
+            </owl:unionOf>
+          </owl:Class>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#Designer_de_interface"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#é_elaborado_por"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#Caso_de_uso"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#descreve_um"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Artefato"/>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Interface de interação com os usuários, atraente, agradável, fácil de usar.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="Texto">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Material"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Texto</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#Equipe">
+    <rdfs:subClassOf rdf:resource="#Papel"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Pessoas que compões diversos cargos ou posições em um projeto.</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Equipe</rdfs:label>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+      <owl:Class rdf:about="#Análise"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+      <owl:Class rdf:about="#Desenho_de_interface"/>
+      <owl:Class rdf:about="#Caso_de_uso"/>
+      <owl:Class rdf:about="#Desenho_da_arquitetura"/>
+      <owl:Class rdf:about="#Desenho_de_banco_de_dados"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+      <owl:Class rdf:about="#Análise"/>
+      <owl:Class rdf:about="#Planejamento"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Redator">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Responsável pela criação do material de texto e de narração.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Equipe"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Redator</rdfs:label>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+      <owl:Class rdf:ID="Imagem"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Plataforma">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Ambiente a ser instalado ou desenvolvido o produto.</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Plataforma</rdfs:label>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+      <owl:Class rdf:about="#Projeto"/>
+      <owl:Class rdf:about="#Desenho_de_interface"/>
+      <owl:Class rdf:about="#Caso_de_uso"/>
+      <owl:Class rdf:about="#Desenho_da_arquitetura"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Relatório_de_cronograma">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="#Equipe"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#é_validado_por"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#Planejamento"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#depende_de"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#descreve_um"/>
+        </owl:onProperty>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#Planejamento"/>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Documento"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Relatório_de_cronograma</rdfs:label>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+      <owl:Class rdf:about="#Análise"/>
+      <owl:Class rdf:about="#Planejamento"/>
+      <owl:Class rdf:about="#Desenho"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+      <owl:Class rdf:about="#Análise"/>
+      <owl:Class rdf:about="#Planejamento"/>
+      <owl:Class rdf:about="#Desenho"/>
+      <owl:Class rdf:about="#Redação"/>
+      <owl:Class rdf:about="#Revisão"/>
+      <owl:Class rdf:about="#Edição"/>
+      <owl:Class rdf:about="#Codificação"/>
+      <owl:Class rdf:about="#Construção_das_páginas"/>
+      <owl:Class rdf:about="#Integração"/>
+      <owl:Class rdf:about="#Testes"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+      <owl:Class rdf:about="#Projeto"/>
+      <owl:Class rdf:about="#Desenho_de_interface"/>
+      <owl:Class rdf:about="#Caso_de_uso"/>
+      <owl:Class rdf:about="#Desenho_da_arquitetura"/>
+      <owl:Class rdf:about="#Desenho_de_banco_de_dados"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Integração">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#depende_de"/>
+        </owl:onProperty>
+        <owl:allValuesFrom>
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <owl:Class rdf:about="#Edição"/>
+              <owl:Class rdf:about="#Codificação"/>
+              <owl:Class rdf:about="#Revisão"/>
+              <owl:Class rdf:about="#Construção_das_páginas"/>
+            </owl:unionOf>
+          </owl:Class>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Desenvolvimento"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Junção das partes textuais, materiais e do código.</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Integração</rdfs:label>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+      <owl:Class rdf:about="#Projeto"/>
+      <owl:Class rdf:about="#Desenho_de_interface"/>
+      <owl:Class rdf:about="#Caso_de_uso"/>
+      <owl:Class rdf:about="#Desenho_da_arquitetura"/>
+      <owl:Class rdf:about="#Desenho_de_banco_de_dados"/>
+      <owl:Class rdf:about="#Protótipo"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Reprodução">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Reprodução</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Tarefas dependentes do tipo de produto; colocação em sítios de distribuição on-line; a embalagem e o envio para locais de instalação.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Implantação"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+      <owl:Class rdf:about="#Fase"/>
+      <owl:Class rdf:about="#Artefato"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+      <owl:Class rdf:about="#Análise"/>
+      <owl:Class rdf:about="#Planejamento"/>
+      <owl:Class rdf:about="#Desenho"/>
+      <owl:Class rdf:about="#Redação"/>
+      <owl:Class rdf:about="#Revisão"/>
+      <owl:Class rdf:about="#Edição"/>
+      <owl:Class rdf:about="#Codificação"/>
+      <owl:Class rdf:about="#Construção_das_páginas"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+      <owl:Class rdf:about="#Desenho_de_interface"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Editor_de_vídeo">
+    <rdfs:subClassOf rdf:resource="#Equipe"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Editor_de_vídeo</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Responsável pelas atividades de gravação, captura, edição e pós-processamento de material de vídeo.</rdfs:comment>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+      <owl:Class rdf:ID="Audio"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Diagrama_de_classe">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Diagrama_de_classe</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#Gerente_de_projeto"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#é_validado_por"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#Engenheiro_de_software"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#é_elaborado_por"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Artefato"/>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Descrevem os relacionamentos estáticos entre classes (informações que cada objeto contém sobre outros objetos).</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Desenho">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Desenho</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Tradução da especificação do projeto em partes concretizáveis que possam ser realizadas com as ferramentas e os recursos de que se dispõe.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="#Desenho_de_interface"/>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#depende_de"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Desenvolvimento"/>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+      <owl:Class rdf:about="#Gerente_de_projeto"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+      <owl:Class rdf:about="#Desenho_de_interface"/>
+      <owl:Class rdf:about="#Desenho_da_arquitetura"/>
+      <owl:Class rdf:about="#Desenho_de_banco_de_dados"/>
+      <owl:Class rdf:about="#Protótipo"/>
+      <owl:Class rdf:about="#Especificação_de_requisitos"/>
+      <owl:Class rdf:about="#Orçamento"/>
+      <owl:Class rdf:ID="Plano_de_desenvolvimento"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+      <owl:Class rdf:about="#Projeto"/>
+      <owl:Class rdf:about="#Desenho_de_interface"/>
+      <owl:Class rdf:about="#Caso_de_uso"/>
+      <owl:Class rdf:about="#Desenho_da_arquitetura"/>
+      <owl:Class rdf:about="#Desenho_de_banco_de_dados"/>
+      <owl:Class rdf:about="#Protótipo"/>
+      <owl:Class rdf:about="#Classe"/>
+      <owl:Class rdf:about="#Diagrama_de_interação"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Implantação">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <owl:Class rdf:about="#Testes"/>
+              <owl:Class rdf:about="#Plataforma_de_entrega"/>
+            </owl:unionOf>
+          </owl:Class>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#depende_de"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Fase"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Implantação</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Realização da transição entre o ambiente controlado de desenvolvimento e o ambiente onde o produto será realmente utilizado.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="Cliente">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Cliente</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Papel"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Parte do público que se pretende atingir com o projeto; pessoa que paga pelo projeto.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Classe">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#é_validado_por"/>
+        </owl:onProperty>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#Gerente_de_projeto"/>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#é_elaborado_por"/>
+        </owl:onProperty>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#Engenheiro_de_software"/>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Artefato"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Classe</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Conceitos presentes no problema a ser resolvido pelo produto.</rdfs:comment>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+      <owl:Class rdf:about="#Análise"/>
+      <owl:Class rdf:about="#Planejamento"/>
+      <owl:Class rdf:about="#Desenho"/>
+      <owl:Class rdf:about="#Redação"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+      <owl:Class rdf:about="#Análise"/>
+      <owl:Class rdf:about="#Planejamento"/>
+      <owl:Class rdf:about="#Desenho"/>
+      <owl:Class rdf:about="#Redação"/>
+      <owl:Class rdf:about="#Revisão"/>
+      <owl:Class rdf:about="#Edição"/>
+      <owl:Class rdf:about="#Codificação"/>
+      <owl:Class rdf:about="#Construção_das_páginas"/>
+      <owl:Class rdf:about="#Integração"/>
+      <owl:Class rdf:about="#Testes"/>
+      <owl:Class rdf:about="#Implantação"/>
+      <owl:Class rdf:about="#Especificação_de_requisitos"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+      <owl:Class rdf:about="#Desenho_de_interface"/>
+      <owl:Class rdf:about="#Desenho_da_arquitetura"/>
+      <owl:Class rdf:about="#Desenho_de_banco_de_dados"/>
+      <owl:Class rdf:about="#Protótipo"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Designer_de_interface">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Designer_de_interface</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Responsável pelo desenho detalhado das interfaces de usuário.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#é_responsável_por"/>
+        </owl:onProperty>
+        <owl:allValuesFrom>
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <owl:Class rdf:ID="Editor_de_áudio"/>
+              <owl:Class rdf:about="#Editor_de_vídeo"/>
+            </owl:unionOf>
+          </owl:Class>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Equipe"/>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+      <owl:Class rdf:about="#Projeto"/>
+      <owl:Class rdf:about="#Desenho_de_interface"/>
+      <owl:Class rdf:about="#Caso_de_uso"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+      <owl:Class rdf:about="#Material"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+      <owl:Class rdf:about="#Análise"/>
+      <owl:Class rdf:about="#Planejamento"/>
+      <owl:Class rdf:about="#Desenho"/>
+      <owl:Class rdf:about="#Redação"/>
+      <owl:Class rdf:about="#Revisão"/>
+      <owl:Class rdf:about="#Edição"/>
+      <owl:Class rdf:about="#Codificação"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Planejamento">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#depende_de"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#Análise"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Especificação"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Planejamento</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Fase em que se identificam as etapas, recursos, critérios para controle e avaliação do projeto e possíveis riscos na consecução do mesmo.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Editor_de_áudio">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Responsável pelas atividades de gravação, captura, edição e pós-processamento de material de áudio.</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Editor_de_áudio</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Equipe"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Orçamento">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Orçamento</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="#Análise"/>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#depende_de"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#descreve_um"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#Projeto"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Documento"/>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+      <owl:Class rdf:about="#Projeto"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+      <owl:Class rdf:about="#Análise"/>
+      <owl:Class rdf:about="#Planejamento"/>
+      <owl:Class rdf:about="#Desenho"/>
+      <owl:Class rdf:about="#Redação"/>
+      <owl:Class rdf:about="#Revisão"/>
+      <owl:Class rdf:about="#Edição"/>
+      <owl:Class rdf:about="#Codificação"/>
+      <owl:Class rdf:about="#Construção_das_páginas"/>
+      <owl:Class rdf:about="#Integração"/>
+      <owl:Class rdf:about="#Testes"/>
+      <owl:Class rdf:about="#Implantação"/>
+      <owl:Class rdf:about="#Especificação_de_requisitos"/>
+      <owl:Class rdf:about="#Orçamento"/>
+      <owl:Class rdf:about="#Plano_de_desenvolvimento"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Artefato">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Artefato</rdfs:label>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+      <owl:Class rdf:about="#Desenho_de_interface"/>
+      <owl:Class rdf:about="#Caso_de_uso"/>
+      <owl:Class rdf:about="#Desenho_da_arquitetura"/>
+      <owl:Class rdf:about="#Desenho_de_banco_de_dados"/>
+      <owl:Class rdf:about="#Protótipo"/>
+      <owl:Class rdf:about="#Classe"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+      <owl:Class rdf:about="#Material"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Plataforma_de_desenvolvimento">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Ambiente de criação, trabalho e manutenção do produto multimídia.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Plataforma"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Plataforma_de_desenvolvimento</rdfs:label>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+      <owl:Class rdf:about="#Fase"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+      <owl:Class rdf:about="#Projeto"/>
+      <owl:Class rdf:about="#Desenho_de_interface"/>
+      <owl:Class rdf:about="#Caso_de_uso"/>
+      <owl:Class rdf:about="#Desenho_da_arquitetura"/>
+      <owl:Class rdf:about="#Desenho_de_banco_de_dados"/>
+      <owl:Class rdf:about="#Protótipo"/>
+      <owl:Class rdf:about="#Classe"/>
+      <owl:Class rdf:about="#Diagrama_de_interação"/>
+      <owl:Class rdf:about="#Diagrama_de_classe"/>
+      <owl:Class rdf:about="#Documento"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+      <owl:Class rdf:about="#Projeto"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+      <owl:Class rdf:about="#Análise"/>
+      <owl:Class rdf:about="#Planejamento"/>
+      <owl:Class rdf:about="#Desenho"/>
+      <owl:Class rdf:about="#Redação"/>
+      <owl:Class rdf:about="#Revisão"/>
+      <owl:Class rdf:about="#Edição"/>
+      <owl:Class rdf:about="#Codificação"/>
+      <owl:Class rdf:about="#Construção_das_páginas"/>
+      <owl:Class rdf:about="#Integração"/>
+      <owl:Class rdf:about="#Testes"/>
+      <owl:Class rdf:about="#Implantação"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+      <owl:Class rdf:about="#Desenho_de_interface"/>
+      <owl:Class rdf:about="#Caso_de_uso"/>
+      <owl:Class rdf:about="#Desenho_da_arquitetura"/>
+      <owl:Class rdf:about="#Desenho_de_banco_de_dados"/>
+      <owl:Class rdf:about="#Protótipo"/>
+      <owl:Class rdf:about="#Classe"/>
+      <owl:Class rdf:about="#Diagrama_de_interação"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+      <owl:Class rdf:about="#Projeto"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+      <owl:Class rdf:about="#Desenho_de_interface"/>
+      <owl:Class rdf:about="#Caso_de_uso"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+      <owl:Class rdf:about="#Artefato"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Fase">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Fase</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#é_realizado_por"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#Equipe"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Edição">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Edição</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#depende_de"/>
+        </owl:onProperty>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#Material"/>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Desenvolvimento"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Inclusão de dados referentes ao processamento de apresentação visual do produto.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Diagrama_de_interação">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Descrevem como as classes interagem entre si e com os atores, para realizar os casos de uso.</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Diagrama_de_interação</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#Gerente_de_projeto"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#é_validado_por"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#é_elaborado_por"/>
+        </owl:onProperty>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#Engenheiro_de_software"/>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Artefato"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Audio">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Audio</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Material"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Testes">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#depende_de"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#Integração"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Desenvolvimento"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Testes</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Testes de aceitação, realizados no ambiente dos usuários.</rdfs:comment>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+      <owl:Class rdf:about="#Artefato"/>
+      <owl:Class rdf:about="#Material"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Imagem">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Imagem</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Material"/>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Representação em duas dimensões de um signo como um conjunto finito de valores digitais, chamados pixels. A matriz é uma malha, onde cada ponto ou célula é um pixel, com um valor associado a cada ponto.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Plano_de_desenvolvimento">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Etapas do projeto a serem realizadas, desde a idéia ao produto final adquirido pelo cliente.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#depende_de"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#Planejamento"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#descreve_um"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#Desenvolvimento"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Documento"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Plano_de_desenvolvimento</rdfs:label>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+      <owl:Class rdf:about="#Projeto"/>
+      <owl:Class rdf:about="#Artefato"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Engenheiro_de_software">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Engenheiro_de_software</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >É responsável pelo desenho, implementação e testes de scripts, componentes e outros materiais de programa.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#é_responsável_por"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#Programador"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Equipe"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Especificação">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <owl:Class rdf:about="#Analista_de_negócio"/>
+              <owl:Class rdf:about="#Gerente_de_projeto"/>
+            </owl:unionOf>
+          </owl:Class>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#é_realizado_por"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Fase"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Conjunto das atividades que permitem a definição detalhada do produto a ser desenvolvido, assim como o dimensionamento dos recursos e prazos necessários.</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Especificação</rdfs:label>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+      <owl:Class rdf:about="#Projeto"/>
+      <owl:Class rdf:about="#Desenho_de_interface"/>
+      <owl:Class rdf:about="#Caso_de_uso"/>
+      <owl:Class rdf:about="#Desenho_da_arquitetura"/>
+      <owl:Class rdf:about="#Desenho_de_banco_de_dados"/>
+      <owl:Class rdf:about="#Protótipo"/>
+      <owl:Class rdf:about="#Classe"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+      <owl:Class rdf:about="#Projeto"/>
+      <owl:Class rdf:about="#Desenho_de_interface"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+      <owl:Class rdf:about="#Desenho_de_interface"/>
+      <owl:Class rdf:about="#Caso_de_uso"/>
+      <owl:Class rdf:about="#Desenho_da_arquitetura"/>
+      <owl:Class rdf:about="#Desenho_de_banco_de_dados"/>
+      <owl:Class rdf:about="#Protótipo"/>
+      <owl:Class rdf:about="#Classe"/>
+      <owl:Class rdf:about="#Diagrama_de_interação"/>
+      <owl:Class rdf:about="#Diagrama_de_classe"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Caso_de_uso">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Caso_de_uso</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#é_validado_por"/>
+        </owl:onProperty>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#Gerente_de_projeto"/>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#é_elaborado_por"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#Analista_de_negócio"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Artefato"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Comportamento esperado de uma determinada ação do usuário como um todo.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Material">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Material</rdfs:label>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+      <owl:Class rdf:about="#Análise"/>
+      <owl:Class rdf:about="#Planejamento"/>
+      <owl:Class rdf:about="#Desenho"/>
+      <owl:Class rdf:about="#Redação"/>
+      <owl:Class rdf:about="#Revisão"/>
+      <owl:Class rdf:about="#Edição"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+      <owl:Class rdf:about="#Desenho_de_interface"/>
+      <owl:Class rdf:about="#Caso_de_uso"/>
+      <owl:Class rdf:about="#Desenho_da_arquitetura"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Codificação">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <owl:Class rdf:about="#Protótipo"/>
+              <owl:Class rdf:about="#Desenho_de_banco_de_dados"/>
+              <owl:Class rdf:about="#Caso_de_uso"/>
+              <owl:Class rdf:about="#Desenho_da_arquitetura"/>
+            </owl:unionOf>
+          </owl:Class>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#depende_de"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Desenvolvimento"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Codificação</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Consiste em associar um conjunto de dígitos binários a cada valor quantificado.</rdfs:comment>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+      <owl:Class rdf:about="#Projeto"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Protótipo">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <owl:Class rdf:about="#Analista_de_negócio"/>
+              <owl:Class rdf:about="#Gerente_de_projeto"/>
+            </owl:unionOf>
+          </owl:Class>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#é_validado_por"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="#Designer_de_interface"/>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#é_elaborado_por"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="#Caso_de_uso"/>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#descreve_um"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Artefato"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Protótipo</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Produto que ainda não foi comercializado, mas está em fase de testes ou de planejamento; modelo para servir de base para o desenvolvimento de um produto multimídia.</rdfs:comment>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+      <owl:Class rdf:about="#Artefato"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+      <owl:Class rdf:about="#Gerente_de_projeto"/>
+      <owl:Class rdf:about="#Analista_de_negócio"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Instalação">
+    <rdfs:subClassOf rdf:resource="#Implantação"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Colocação do produto nas máquinas onde será instalado.</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Instalação</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#Gerente_de_projeto">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Gerente_de_projeto</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#é_responsável_por"/>
+        </owl:onProperty>
+        <owl:allValuesFrom>
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <owl:Class rdf:about="#Analista_de_negócio"/>
+              <owl:Class rdf:about="#Engenheiro_de_software"/>
+            </owl:unionOf>
+          </owl:Class>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <owl:Class rdf:about="#Usuário"/>
+              <owl:Class rdf:about="#Cliente"/>
+              <owl:Class rdf:about="#Equipe"/>
+            </owl:unionOf>
+          </owl:Class>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="comunica_com"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Equipe"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Responsável pelo planejamento e controle do projeto, elaboração de planos, condução de reuniões, relacionamento com clientes, gestão financeira e pessoal.</rdfs:comment>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+      <owl:Class rdf:about="#Análise"/>
+      <owl:Class rdf:about="#Planejamento"/>
+      <owl:Class rdf:about="#Desenho"/>
+      <owl:Class rdf:about="#Redação"/>
+      <owl:Class rdf:about="#Revisão"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Redação">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#depende_de"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#Caso_de_uso"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Desenvolvimento"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Construção dos textos a serem apresentados no produto.</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Redação</rdfs:label>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="#é_validado_por">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >é_validado_por</rdfs:label>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+          <owl:Class rdf:about="#Desenho_de_interface"/>
+          <owl:Class rdf:about="#Caso_de_uso"/>
+          <owl:Class rdf:about="#Desenho_da_arquitetura"/>
+          <owl:Class rdf:about="#Desenho_de_banco_de_dados"/>
+          <owl:Class rdf:about="#Protótipo"/>
+          <owl:Class rdf:about="#Classe"/>
+          <owl:Class rdf:about="#Diagrama_de_interação"/>
+          <owl:Class rdf:about="#Diagrama_de_classe"/>
+          <owl:Class rdf:about="#Especificação_de_requisitos"/>
+          <owl:Class rdf:about="#Relatório_de_cronograma"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#é_responsável_por">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+          <owl:Class rdf:about="#Gerente_de_projeto"/>
+          <owl:Class rdf:about="#Analista_de_negócio"/>
+          <owl:Class rdf:about="#Engenheiro_de_software"/>
+          <owl:Class rdf:about="#Designer_de_interface"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >é_responsável_por</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="utilizado_em">
+    <rdfs:range rdf:resource="#Projeto"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+          <owl:Class rdf:about="#Material"/>
+          <owl:Class rdf:about="#Plataforma"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >utilizado_em</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#comunica_com">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+          <owl:Class rdf:about="#Gerente_de_projeto"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="#Papel"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >comunica_com</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:FunctionalProperty rdf:ID="cena">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >cena</rdfs:label>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+          <owl:Class rdf:about="#Vídeo"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="título">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >título</rdfs:label>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+          <owl:Class rdf:about="#Projeto"/>
+          <owl:Class rdf:about="#Material"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="cnpj">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >cnpj</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+          <owl:Class rdf:about="#Cliente"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="profundidade_de_bits">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+          <owl:Class rdf:about="#Imagem"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >profundidade_de_bits</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="taxa_de_bits">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >taxa_de_bits</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+          <owl:Class rdf:about="#Audio"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="restrições">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+          <owl:Class rdf:about="#Projeto"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >restrições</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="dimensões">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >dimensões</rdfs:label>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+          <owl:Class rdf:about="#Imagem"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="arquitetura">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >arquitetura</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+          <owl:Class rdf:about="#Plataforma"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="data_de_início">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+          <owl:Class rdf:about="#Projeto"/>
+          <owl:Class rdf:about="#Fase"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >data_de_início</rdfs:label>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#é_realizado_por">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+          <owl:Class rdf:about="#Fase"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >é_realizado_por</rdfs:label>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="telefone">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >telefone</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+          <owl:Class rdf:about="#Papel"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="nome">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+          <owl:Class rdf:about="#Papel"/>
+          <owl:Class rdf:about="#Produto"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >nome</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="código">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >código</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+          <owl:Class rdf:about="#Projeto"/>
+          <owl:Class rdf:about="#Artefato"/>
+          <owl:Class rdf:about="#Documento"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="endereço">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+          <owl:Class rdf:about="#Papel"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >endereço</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="e-mail">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >e-mail</rdfs:label>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+          <owl:Class rdf:about="#Papel"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="data_de_modificação">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+          <owl:Class rdf:about="#Artefato"/>
+          <owl:Class rdf:about="#Material"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >data_de_modificação</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="data_de_criação">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >data_de_criação</rdfs:label>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+          <owl:Class rdf:about="#Artefato"/>
+          <owl:Class rdf:about="#Material"/>
+          <owl:Class rdf:about="#Documento"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="data_de_encerramento">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+          <owl:Class rdf:about="#Projeto"/>
+          <owl:Class rdf:about="#Fase"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >data_de_encerramento</rdfs:label>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="custo">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >custo</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+          <owl:Class rdf:about="#Projeto"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="duração">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >duração</rdfs:label>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+          <owl:Class rdf:about="#Audio"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="codec">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >codec</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+          <owl:Class rdf:about="#Audio"/>
+          <owl:Class rdf:about="#Vídeo"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="descrição">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >descrição</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+          <owl:Class rdf:about="#Artefato"/>
+          <owl:Class rdf:about="#Material"/>
+          <owl:Class rdf:about="#Documento"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="palavras_chave">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+          <owl:Class rdf:about="#Material"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >palavras_chave</rdfs:label>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="linguagem">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >linguagem</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+          <owl:Class rdf:about="#Plataforma_de_desenvolvimento"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="formato">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >formato</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+          <owl:Class rdf:about="#Material"/>
+          <owl:Class rdf:about="#Documento"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="espaço_de_cor">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >espaço_de_cor</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+          <owl:Class rdf:about="#Imagem"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="fase_atual">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >fase_atual</rdfs:label>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+          <owl:Class rdf:about="#Projeto"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="interage_com">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+          <owl:Class rdf:about="#Produto"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="#Usuário"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >interage_com</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="é_resultado_de">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >é_resultado_de</rdfs:label>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+          <owl:Class rdf:about="#Produto"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="#Projeto"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="escopo">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >escopo</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+          <owl:Class rdf:about="#Projeto"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="referente_a">
+    <rdfs:range rdf:resource="#Projeto"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+          <owl:Class rdf:about="#Fase"/>
+          <owl:Class rdf:about="#Artefato"/>
+          <owl:Class rdf:about="#Documento"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >referente_a</rdfs:label>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#depende_de">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >depende_de</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+          <owl:Class rdf:about="#Análise"/>
+          <owl:Class rdf:about="#Planejamento"/>
+          <owl:Class rdf:about="#Desenho"/>
+          <owl:Class rdf:about="#Redação"/>
+          <owl:Class rdf:about="#Revisão"/>
+          <owl:Class rdf:about="#Edição"/>
+          <owl:Class rdf:about="#Codificação"/>
+          <owl:Class rdf:about="#Construção_das_páginas"/>
+          <owl:Class rdf:about="#Integração"/>
+          <owl:Class rdf:about="#Testes"/>
+          <owl:Class rdf:about="#Implantação"/>
+          <owl:Class rdf:about="#Especificação_de_requisitos"/>
+          <owl:Class rdf:about="#Orçamento"/>
+          <owl:Class rdf:about="#Plano_de_desenvolvimento"/>
+          <owl:Class rdf:about="#Relatório_de_cronograma"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#é_elaborado_por">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+          <owl:Class rdf:about="#Projeto"/>
+          <owl:Class rdf:about="#Desenho_de_interface"/>
+          <owl:Class rdf:about="#Caso_de_uso"/>
+          <owl:Class rdf:about="#Desenho_da_arquitetura"/>
+          <owl:Class rdf:about="#Desenho_de_banco_de_dados"/>
+          <owl:Class rdf:about="#Protótipo"/>
+          <owl:Class rdf:about="#Classe"/>
+          <owl:Class rdf:about="#Diagrama_de_interação"/>
+          <owl:Class rdf:about="#Diagrama_de_classe"/>
+          <owl:Class rdf:about="#Documento"/>
+          <owl:Class rdf:about="#Produto"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >é_elaborado_por</rdfs:label>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="direitos_de_uso">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+          <owl:Class rdf:about="#Material"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >direitos_de_uso</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="riscos">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+          <owl:Class rdf:about="#Projeto"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >riscos</rdfs:label>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="é_aprovado_por">
+    <rdfs:range rdf:resource="#Cliente"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+          <owl:Class rdf:about="#Projeto"/>
+          <owl:Class rdf:about="#Artefato"/>
+          <owl:Class rdf:about="#Documento"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >é_aprovado_por</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="data_de_revisão">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >data_de_revisão</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+          <owl:Class rdf:about="#Documento"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="mídia">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >mídia</rdfs:label>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+          <owl:Class rdf:about="#Plataforma_de_entrega"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="resolução">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >resolução</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+          <owl:Class rdf:about="#Imagem"/>
+          <owl:Class rdf:about="#Vídeo"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#descreve_um">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >descreve_um</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+          <owl:Class rdf:about="#Desenho_de_interface"/>
+          <owl:Class rdf:about="#Desenho_da_arquitetura"/>
+          <owl:Class rdf:about="#Desenho_de_banco_de_dados"/>
+          <owl:Class rdf:about="#Protótipo"/>
+          <owl:Class rdf:about="#Especificação_de_requisitos"/>
+          <owl:Class rdf:about="#Orçamento"/>
+          <owl:Class rdf:about="#Plano_de_desenvolvimento"/>
+          <owl:Class rdf:about="#Relatório_de_cronograma"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="sistema_operacional">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >sistema_operacional</rdfs:label>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+          <owl:Class rdf:about="#Plataforma"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="criador">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >criador</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+          <owl:Class rdf:about="#Material"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="locação">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >locação</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+          <owl:Class rdf:about="#Vídeo"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:FunctionalProperty>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.4.1, Build 536)  http://protege.stanford.edu -->
